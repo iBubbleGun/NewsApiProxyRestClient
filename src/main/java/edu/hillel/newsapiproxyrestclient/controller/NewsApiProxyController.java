@@ -19,12 +19,12 @@ public class NewsApiProxyController {
     }
 
     @GetMapping("/getTopNews")
-    public List<String> getTopNews(@RequestParam String keyWord, @RequestParam String lang) {
-        return newsApiProxyClient.getTopNews(keyWord, lang);
+    public List<String> getTopNews(@RequestParam String keyword, @RequestParam String lang) {
+        return newsApiProxyClient.getTopNews(keyword, lang);
     }
 
     @GetMapping("/getAllNews")
-    public List<String> getAllNews(@RequestParam String keyWord, @RequestParam String lang) {
-        return newsApiProxyClient.getAllNews(keyWord, lang);
+    public List<String> getAllNews(@RequestParam String keyword, @RequestParam String lang) {
+        return newsApiProxyClient.getAllNews(keyword, lang);
     }
 }

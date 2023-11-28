@@ -29,7 +29,7 @@ public class NewsApiProxyControllerTest {
     @Test
     public void testGetTopNews() throws Exception {
         Mockito.when(newsApiProxyClient.getTopNews("test_keyword", "test_lang")).thenReturn(getTestNews().subList(0, 2));
-        mvc.perform(get("/news/getTopNews?keyWord=test_keyword&lang=test_lang"))
+        mvc.perform(get("/news/getTopNews?keyword=test_keyword&lang=test_lang"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.length()").value(2));
     }
@@ -37,7 +37,7 @@ public class NewsApiProxyControllerTest {
     @Test
     public void testGetAllNews() throws Exception {
         Mockito.when(newsApiProxyClient.getAllNews("test_keyword", "test_lang")).thenReturn(getTestNews());
-        mvc.perform(get("/news/getAllNews?keyWord=test_keyword&lang=test_lang"))
+        mvc.perform(get("/news/getAllNews?keyword=test_keyword&lang=test_lang"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.length()").value(5));
     }

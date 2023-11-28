@@ -23,7 +23,7 @@ public class NewsApiProxyClient {
         final ParameterizedTypeReference<List<String>> responseType = new ParameterizedTypeReference<>() {
         };
         final RequestEntity<Void> requestEntity = RequestEntity
-                .get(String.format(Config.NEWS_API_PROXY_SERVICE_HOST + "getTopNews?keyWord=%s&lang=%s", keyWord, lang))
+                .get(String.format(Config.NEWS_API_PROXY_SERVICE_HOST + "getTopNews?keyword=%s&lang=%s", keyWord, lang))
                 .accept(MediaType.APPLICATION_JSON).build();
         final ResponseEntity<List<String>> responseEntity = restTemplate.exchange(requestEntity, responseType);
         return responseEntity.getBody();
@@ -33,7 +33,7 @@ public class NewsApiProxyClient {
         final ParameterizedTypeReference<List<String>> responseType = new ParameterizedTypeReference<>() {
         };
         final RequestEntity<Void> requestEntity = RequestEntity
-                .get(String.format(Config.NEWS_API_PROXY_SERVICE_HOST + "getAllNews?keyWord=%s&lang=%s", keyWord, lang))
+                .get(String.format(Config.NEWS_API_PROXY_SERVICE_HOST + "getAllNews?keyword=%s&lang=%s", keyWord, lang))
                 .accept(MediaType.APPLICATION_JSON).build();
         final ResponseEntity<List<String>> responseEntity = restTemplate.exchange(requestEntity, responseType);
         return responseEntity.getBody();
